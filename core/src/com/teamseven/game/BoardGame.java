@@ -13,6 +13,70 @@ public class BoardGame extends Game {
 	
 }
 
+
+
+// Holds a deck of a specific type of card and int to hold index for the top card location
+class Deck{
+	
+	
+	
+	
+	
+}
+
+// Class defining all character able to take part in combat
+class Character{
+	int health;
+	int attack;
+	int defense;
+}
+
+// Class defining player information
+class Player extends Character{
+	int player_ID;
+	//++ some sort of inventory container
+}
+
+class NPC extends Character{
+	int NPC_ID;
+}
+
+// Holds the information of a single card
+class Card{
+	int card_ID;
+}
+
+
+// Equippable item cards
+// 3 digit Card ID's beginning with 1
+class ItemCard extends Card{
+	int healthBonus;
+	int attackBonus;
+	int defenseBonus;	
+}
+
+// One-off usable spell cards
+// 3 digit Card ID's beginning with 2
+class SpellCard extends Card{
+	
+}
+
+// Quest cards describing objective and reward
+// 3 digit Card ID's beginning with 3
+class QuestCard extends Card{
+	
+}
+
+// Fortune card describing buffs and special advantages
+// 3 digit Card ID's beginning with 4
+class FortuneCard extends Card{
+	
+}
+
+
+
+
+
 //
 //package com.teamseven.game;
 //
