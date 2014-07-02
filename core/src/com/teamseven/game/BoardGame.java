@@ -3,8 +3,8 @@ package com.teamseven.game;
 import com.badlogic.gdx.Game;
 
 public class BoardGame extends Game {
-	public static final String TITLE = "Board Game";
-	public static final int WIDTH = 480,HEIGHT=800;
+	public static final String TITLE = "7 Dungeons";
+	public static final int WIDTH = 1200, HEIGHT=800;
 	
 	@Override
 	public void create () {
