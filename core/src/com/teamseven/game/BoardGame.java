@@ -9,6 +9,62 @@ public class BoardGame extends Game {
 	@Override
 	public void create () {
 		setScreen(new Splash());
+		
+		// display new game screen, take input
+		
+		gameInitialize();
+		
+		// end of game, ask to play again
+		
+	}
+	
+	// initializes all starting game data
+	private static void gameInitialize(){
+		// set player locations, classes, starting stats
+		// randomize decks
+		
+		// get input from user
+		numplayers = 2;
+		
+		// set player classes
+		Player player1 = new Player();
+		Player player2 = new Player();
+		
+		// start game
+		gameBoard(numPlayers, player1, player2, player3, player4);
+	}
+	
+	// maintain player data, pass turn to each player per round
+	private static void gameBoard(int numPlayers, Player player1, Player player2, Player player3, Player player4){
+		boolean dragonIsAlive = true;
+		int winner = -1;
+		
+		// round loop
+		while(dragonIsAlive){
+		
+			for(int i = 0; i < numPlayers; i++){
+				// player i's turn
+				
+				// roll for movement, move
+				
+				// tile event
+				
+				// if combat, run combat function
+				
+				
+				
+				if(false/*dragon is dead*/){
+					dragonIsAlive = false;
+					winner = -1;//whatever player kills dragon
+				}
+			}
+			
+		}
+		
+		winScreen(winner);//display who won, play again or exit
+		
+		if(true/*play again selected*/)
+			gameInitialize();
 	}
 	
 }
