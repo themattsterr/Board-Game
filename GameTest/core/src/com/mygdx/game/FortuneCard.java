@@ -5,7 +5,6 @@ public class FortuneCard extends Card {
 	//the gold that the player will receive upon activating the card
 	private int value;
 	
-	//constructor
 	public FortuneCard(int id) {
 		super(id);
 	}
