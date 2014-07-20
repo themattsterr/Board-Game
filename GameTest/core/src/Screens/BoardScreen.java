@@ -87,7 +87,7 @@ public class BoardScreen implements Screen, GestureListener {
 	   
 	 camera.position.set(x, y,0);
 	 
-	move();
+	
 	
 	 camera.update();
 	 
@@ -126,8 +126,6 @@ public class BoardScreen implements Screen, GestureListener {
 		Gdx.input.setInputProcessor(new GestureDetector(this));
 	
 		
-		setUpBoard();
-	
 	
 		 
 	}
@@ -184,7 +182,8 @@ public class BoardScreen implements Screen, GestureListener {
 	public boolean longPress(float x, float y) {
 		// TODO Auto-generated method stub
 	
-	
+	game.setScreen(game.battleScreen);
+	game.battleScreen.setBattle(players[turn], players[(turn + 1) % 4]);
 		return false;
 	}
 
@@ -246,17 +245,7 @@ public class BoardScreen implements Screen, GestureListener {
 	 if (x > 2665.0) x = 2665;
  }
 
- public void move(){
-	 if(Gdx.input.isKeyPressed(Keys.W)) archer.changeY(3);
-	 if(Gdx.input.isKeyPressed(Keys.A)) archer.changeX(-3);
-	 if(Gdx.input.isKeyPressed(Keys.S))archer.changeY(-3);
-	 if(Gdx.input.isKeyPressed(Keys.D)) archer.changeX(3);
-	
- }
+
  
- public void setUpBoard(){
-		
-	 //outside
-	 		
- }
+ 
 }

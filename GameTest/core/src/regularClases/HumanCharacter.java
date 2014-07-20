@@ -32,7 +32,7 @@ public abstract class HumanCharacter extends Character {
 		}
 		
 		board.getTile(level, position).addPlayer(this);
-		super.moveTo(board.getTile(level, position).getVector());
+		super.move(board.getTile(level, position).getVector());
 		
 	}
 	

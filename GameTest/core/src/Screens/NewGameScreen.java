@@ -42,7 +42,7 @@ public class NewGameScreen implements Screen{
 			game.setScreen(game.chooseClassScreen);
 			//dispose();
 			
-			
+		
 		} 
 		
 		
