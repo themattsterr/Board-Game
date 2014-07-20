@@ -28,7 +28,8 @@ public class Monster extends Character {
 	}
 
 	private int attack(){
-		return new Dice().roll;
+	//	return new Dice().roll;
+		return 2;
 	}
 	
 	private int defeated(){

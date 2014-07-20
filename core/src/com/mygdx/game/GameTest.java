@@ -33,7 +33,7 @@ public class GameTest extends Game {
 		handScreen = new HandScreen(this);
 		
 		setScreen(newGameScreen);
-		//sdfg
+		
 		
 	}
 
