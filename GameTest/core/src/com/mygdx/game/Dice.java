@@ -7,6 +7,7 @@ public class Dice {
 	private Random rand = new Random();
 	private int value;
 
+	//dice
 	public Dice() {
 		value = 0;
 	}
