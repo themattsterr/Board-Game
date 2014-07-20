@@ -32,7 +32,7 @@ public abstract class Tile {
 		return level;
 	}
 	
-	public boolean clash(){
+	public boolean ifClash(){
 		if(playersOnSpace.size() > 1) return true;
 		else return false;
 	}

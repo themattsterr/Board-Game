@@ -17,7 +17,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 public class GameTest extends Game {
 	public static NewGameScreen newGameScreen;
 	public static ChooseClassScreen chooseClassScreen;
-	public static BoardScreen boardScreen;
+	public BoardScreen boardScreen;
 	public BattleScreen battleScreen;
 	public ShopScreen shopScreen;
 	public HandScreen handScreen; 

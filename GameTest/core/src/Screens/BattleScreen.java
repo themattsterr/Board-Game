@@ -16,6 +16,7 @@ public class BattleScreen implements Screen {
 	GameTest game;
 	HumanCharacter fighter;
 	HumanCharacter defender;
+	
 	private Stage battleStage;
 	Sound music;
 	public BattleScreen(GameTest game) {
@@ -27,8 +28,8 @@ public class BattleScreen implements Screen {
 	public void setBattle(HumanCharacter player1, HumanCharacter player2){
 		fighter = player1;
 		defender = player2;
-		music = Gdx.audio.newSound(Gdx.files.internal("sab.mp3"));
-		music.play();
+		//music = Gdx.audio.newSound(Gdx.files.internal("sab.mp3"));
+	//	music.play();
 	}
 
 	@Override
@@ -42,7 +43,7 @@ public class BattleScreen implements Screen {
 		
 		if(Gdx.input.isKeyPressed(Keys.ENTER)){
 			game.setScreen(game.boardScreen);
-			this.dispose();
+			//this.dispose();
 		}
 	}
 
@@ -79,7 +80,7 @@ public class BattleScreen implements Screen {
 	@Override
 	public void dispose() {
 		// TODO Auto-generated method stub
-		music.dispose();
+		//music.dispose();
 	}
 
 }

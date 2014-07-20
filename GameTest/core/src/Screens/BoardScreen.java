@@ -6,18 +6,12 @@ import regularClases.HumanCharacter;
 import regularClases.Knight;
 import regularClases.Mage;
 
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.Input.Keys;
-import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.PerspectiveCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.input.GestureDetector;
 import com.badlogic.gdx.input.GestureDetector.GestureListener;
 import com.badlogic.gdx.math.Vector2;
@@ -34,8 +28,10 @@ public class BoardScreen implements Screen, GestureListener {
 	private Stage stage;
 	static final int WIDTH = 1080;
 	static final int HEIGHT = 720;
+	static boolean initial = false;
 	private GameBoard board; 
-	private HumanCharacter[] players;;
+	private HumanCharacter[] players;
+	
 	private int turn = 0;
 	
 	
@@ -43,12 +39,12 @@ public class BoardScreen implements Screen, GestureListener {
 	
 	private Viewport viewport;
 	private OrthographicCamera camera; 
+	
 	float x =  WIDTH / 2;
 	float y = HEIGHT /2;
-	private Batch batch;
-	private Texture img;
+
 	private GameTest game;
-	HumanCharacter archer;
+	
 	int testPos = 0;
 	
 
@@ -78,12 +74,11 @@ public class BoardScreen implements Screen, GestureListener {
 	public void render(float delta) {
 		// TODO Auto-generated method stub
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		
-	    
 	    stage.act(Gdx.graphics.getDeltaTime());
+	    
 	    stage.draw();
 	    
-	checkMax();
+	    checkMax();
 	   
 	 camera.position.set(x, y,0);
 	 
@@ -91,40 +86,46 @@ public class BoardScreen implements Screen, GestureListener {
 	
 	 camera.update();
 	 
+	 if((Gdx.input.getAccelerometerX()  > 3) && (Gdx.input.getAccelerometerY() > 3)){
+		 players[turn++].move();
+		 turn %= 4;
+	 }
 	
 	}
 
 	@Override
 	public void resize(int width, int height) {
 		// TODO Auto-generated method stub
-		viewport.update(width, height);
+		//viewport.update(width, height);
 	}
 
 	@Override
 	public void show() {
-		// TODO Auto-generated method stub
-		camera = new OrthographicCamera();
-		viewport = new ScreenViewport();
-		stage = new Stage(new FitViewport(WIDTH,HEIGHT,camera));
+		if(initial == false){
+			// TODO Auto-generated method stub
+			camera = new OrthographicCamera();
+			viewport = new ScreenViewport();
+			stage = new Stage(new FitViewport(WIDTH,HEIGHT,camera));
+			
+			MyActor boardPic = new MyActor();
+			
+			players = new HumanCharacter[4];
+			players[0] = new Assassin(board);
+			players[1] = new Mage(board);
+			players[2] = new Knight(board);
+			players[3] = new Archer(board);
+			
+			
+			stage.addActor(boardPic);
+	
+			for(int i = 0; i < 4; i++){
+				stage.addActor(players[i]);
+			}
 		
-		MyActor boardPic = new MyActor();
-		
-		players = new HumanCharacter[4];
-		players[0] = new Assassin(board);
-		players[1] = new Mage(board);
-		players[2] = new Knight(board);
-		players[3] = new Archer(board);
-		
-		
-		stage.addActor(boardPic);
-
-		for(int i = 0; i < 4; i++){
-			stage.addActor(players[i]);
+			
+			Gdx.input.setInputProcessor(new GestureDetector(this));
+			initial = true;
 		}
-	
-		
-		Gdx.input.setInputProcessor(new GestureDetector(this));
-	
 		
 	
 		 
@@ -171,7 +172,7 @@ public class BoardScreen implements Screen, GestureListener {
 	public boolean tap(float x, float y, int count, int button) {
 	
 		 
-		players[turn++].move();
+		while(!players[turn++].move());
 		turn %= 4;
 		return false;
 	}

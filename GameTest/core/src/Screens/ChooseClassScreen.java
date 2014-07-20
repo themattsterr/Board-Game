@@ -27,7 +27,7 @@ public class ChooseClassScreen implements Screen{
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		// TODO Auto-generated method stub
 		if(Gdx.input.justTouched()){
-			game.setScreen(GameTest.boardScreen);
+			game.setScreen(game.boardScreen);
 			dispose();
 		}
 		

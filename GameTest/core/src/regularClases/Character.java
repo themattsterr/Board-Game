@@ -8,7 +8,8 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
 public abstract class Character extends Actor {
-	private int health;
+	private int maxHealth;
+	private int currentHealth;
 	private int attack;
 	private int defense;
 	private Texture texture;
@@ -16,7 +17,7 @@ public abstract class Character extends Actor {
 	public float yPos = 0;
 	Batch batch = new SpriteBatch();
 
-	public Character(String texture) {
+	public Character(String texture, int health, int attack, int defense) {
 		this.texture = new Texture(texture);
 	}
 
@@ -43,12 +44,6 @@ public abstract class Character extends Actor {
 		batch.end();
 	}
 
-	public void changeX(int x) {
-		xPos += x;
-	}
-
-	public void changeY(int y) {
-		yPos += y;
-	}
+	
 
 }
