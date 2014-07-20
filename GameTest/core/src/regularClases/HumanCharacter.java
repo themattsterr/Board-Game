@@ -20,8 +20,8 @@ public abstract class HumanCharacter extends Character {
 	//takes in board so it can move
 	GameBoard board;
 	
-	public HumanCharacter(String texture, GameBoard board) {
-		super(texture);
+	public HumanCharacter(String texture, int health, int attack, int defense, GameBoard board) {
+		super(texture, health, attack, defense);
 		this.board = board;
 	}
 	

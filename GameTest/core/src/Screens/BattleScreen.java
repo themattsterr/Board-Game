@@ -14,6 +14,7 @@ import com.sun.corba.se.impl.oa.poa.ActiveObjectMap.Key;
 public class BattleScreen implements Screen {
 
 	GameTest game;
+	
 	HumanCharacter fighter;
 	HumanCharacter defender;
 	
