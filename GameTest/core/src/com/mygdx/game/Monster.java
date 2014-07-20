@@ -14,7 +14,7 @@ public class Monster extends Character {
 	private static int[] health = {2,3,4,5,3,5};
 	private static int[] attack = {2,2,3,3,3,4};
 	private static int[] defense = {0,0,1,1,2,2};
-	private static int[] gold = {10,12,13,15,16,25};
+	private static int[] gold = {1n0,12,13,15,16,25};
 	
 	int type;
 	int level;
